@@ -3,20 +3,31 @@ import { Button, Form } from "react-bootstrap";
 import auth from "../../firebase.init";
 import {
  
+  useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
+import Loading from "./Loading";
 
 const Login = () => {
+  // google sign in
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
   const emailRef = useRef("");
   const PasswordRef = useRef("");
+// email and pass sign in
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
+   
 
   const handalSubmit = (event) => {
     event.preventDefault();
     const email = emailRef.current.value;
     const password = PasswordRef.current.value;
-    console.log(email, password);
+    signInWithEmailAndPassword(email,password)
   };
 
   const handalsignup=() =>{
@@ -24,14 +35,17 @@ const Login = () => {
   }
 
   const navigate = useNavigate();
-  if (guser) {
+  if (guser || user) {
     navigate("/");
   }
 
-  if (gloading) {
-    return <p>loading...</p>;
+  if (gloading || loading) {
+    return <Loading />
   }
   if (gerror) return <p>Error:{gerror.message}</p>;
+  if (error) return <p>Error:{error.message}</p>;
+
+
 
   return (
     <div>
@@ -54,7 +68,7 @@ const Login = () => {
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit">
+          <Button onClick={() => signInWithEmailAndPassword} variant="primary" type="submit">
             Login
           </Button>
           <h5>or</h5>
