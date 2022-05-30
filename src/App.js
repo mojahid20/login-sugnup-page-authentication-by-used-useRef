@@ -4,7 +4,7 @@ import { Routes, Route} from "react-router-dom";
 import Home from './Pages/Home/Home'
 import About from './Pages/About/About'
 import Header from './Pages/Sheard/Header/Header';
-import Footer from './Pages/Sheard/Footer/Footer';
+
 import Profile from './Pages/Profile/Profile';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/SignUp/SignUp';
@@ -20,7 +20,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
-     <Footer />
+     
     </div>
   );
 }

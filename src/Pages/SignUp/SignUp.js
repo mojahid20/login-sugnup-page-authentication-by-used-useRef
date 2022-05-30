@@ -9,12 +9,11 @@ const SignUp = () => {
     
     const namelRef = useRef("");
     const emailRef = useRef("");
-  const PasswordRef = useRef("");
+    const PasswordRef = useRef("");
     const [
         createUserWithEmailAndPassword,
-        user,
-        loading,
-        error,
+        user
+        
       ] = useCreateUserWithEmailAndPassword(auth);
       
     
@@ -61,7 +60,7 @@ const SignUp = () => {
     Submit
   </Button>
 </Form>
-<p className="mt-3 text-center">are you New? <Link to='/login' onClick={handallogin} className="text-danger mt-3 text-decoration-none">Plese Login</Link> </p>
+<p className="mt-3 text-center">All ready have an account ? <Link to='/login' onClick={handallogin} className="text-danger mt-3 text-decoration-none">Plese Login</Link> </p>
         </div>
     );
 };
