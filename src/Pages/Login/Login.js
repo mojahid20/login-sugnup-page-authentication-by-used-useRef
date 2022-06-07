@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import './Login.css';
 import { Button, Form } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
@@ -46,7 +47,25 @@ if(gloading || loading){
   return (
 
 
-     <div>
+     <>
+     <div id="wraper">
+       <div className="from-container">
+         <span className="heading">Login</span>
+         <form action="">
+           <div className="input-group">
+             <input type="email" placeholder='Email' />
+             <span className="bar"></span>
+           </div>
+           <div className="input-group">
+             <input type="password" placeholder='password' />
+             <span className="bar"></span>
+           </div>
+           <div className="input-group">
+             <button>login</button>
+           </div>
+         </form>
+       </div>
+     </div>
        <div className='w-25 mx-auto mt-5'>
          <h1 className='text-center mt-5'>Plese Login</h1>
        <Form  onSubmit={Handalformsubmit}>
@@ -73,7 +92,7 @@ if(gloading || loading){
     <div className='text-center mt-5'>
        <button onClick={() => signInWithGoogle()} className='btn btn-outline-dark '>Sign In with google</button>
     </div>
-     </div>
+     </>
   );
 };
 
