@@ -1,10 +1,10 @@
 
 
 #wraper{
-    background-color: rgba(218,34,255,0.1);
+    
     width: 90%;
-    height: 100vh;
-    margin:  0 auto;
+    height: 100%;
+    margin:  3rem auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,11 +12,12 @@
 }
 .from-container{
     width: 100%;
+   min-height: 300px;
     max-width: 40rem;
     background-color: #fff;
     position: relative;
     padding: 10rem 0;
-    box-shadow: 0 1px 1.5rem rgba(0,0,0.1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     z-index: 1;
 }
 .from-container::before{
@@ -39,10 +40,12 @@
     left: 10rem;
 }
 form{
+    
     transform: translateX(10rem);
-    padding: 2rem 0;
+    padding: 1.3rem 0;
     background-color: white;
     border-radius: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .input-group{
     width: 90%;
@@ -54,12 +57,17 @@ form{
 .input-group input{
     position: relative;
     width: 100%;
-    padding: 1rem 0;
+    padding: 10px 0;
     margin-top: .5rem;
     border: none;
     outline: none;
-    font-size: 1.8rem;
+    font-size: 18px;
     color: #fc6767;
+}
+.input-group p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .input-group .bar{
     position: absolute;
@@ -82,14 +90,19 @@ form{
     width: 100%;
 }
 .input-group button{
-    margin: 3rem auto;
-    padding: 1rem 5rem;
+    margin: 1.4rem auto;
+    padding: 8px 40px;
     background: linear-gradient(to left, #fc6767 ,#ec008c);
     border: none;
     color: #fff;
-    font-size: 2.5rem;
+    font-size: 22px;
     cursor: pointer;
     border-radius: 3rem;
+}
+.or{
+    text-align: center;
+    font-size: 1.3rem;
+    margin: -15px 0;
 }
 
 @media (max-width:700px){
@@ -103,5 +116,6 @@ form{
     form{
         border-radius: initial;
         transform: initial;
+        box-shadow:  none;
     }
 }
